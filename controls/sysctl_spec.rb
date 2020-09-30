@@ -167,18 +167,18 @@ control 'sysctl-13' do
   end
 end
 
-control 'sysctl-14' do
-  impact 1.0
-  title 'Disable acceptance of all IPv4 redirected packets'
-  desc 'Disable acceptance of all redirected packets these prevents Man-in-the-Middle attacks.'
-  only_if { !container_execution }
-  describe kernel_parameter('net.ipv4.conf.default.accept_redirects') do
-    its(:value) { should eq 0 }
-  end
-  describe kernel_parameter('net.ipv4.conf.all.accept_redirects') do
-    its(:value) { should eq 0 }
-  end
-end
+#control 'sysctl-14' do
+#  impact 1.0
+#  title 'Disable acceptance of all IPv4 redirected packets'
+#  desc 'Disable acceptance of all redirected packets these prevents Man-in-the-Middle attacks.'
+#  only_if { !container_execution }
+#  describe kernel_parameter('net.ipv4.conf.default.accept_redirects') do
+#    its(:value) { should eq 0 }
+#  end
+#  describe kernel_parameter('net.ipv4.conf.all.accept_redirects') do
+#    its(:value) { should eq 0 }
+#  end
+#end
 
 control 'sysctl-15' do
   impact 1.0
